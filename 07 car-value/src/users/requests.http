@@ -1,3 +1,4 @@
+### Create new User
 POST http://localhost:3000/auth/signup
 Content-Type: application/json
 
@@ -5,3 +6,40 @@ Content-Type: application/json
 	"email": "blacklacost@gmail.com",
 	"password": "qwe"
 }
+
+
+### Find User by Id
+GET http://localhost:3000/auth/1
+
+
+### Not found User by Id
+GET http://localhost:3000/auth/1000
+
+
+### Find all Users by email
+GET http://localhost:3000/auth?email=blacklacost@gmail.com
+
+
+### Not found Users by email
+GET http://localhost:3000/auth?email=gasgfdasf@gmail.com
+
+
+### Update User
+PATCH http://localhost:3000/auth/1
+Content-Type: application/json
+
+{
+	"email": "updated@gmail.com"
+}
+
+
+### Not found User when update
+PATCH http://localhost:3000/auth/1000
+Content-Type: application/json
+
+{
+	"email": "blacklacost@gmail.com"
+}
+
+### Delete User by id
+DELETE http://localhost:3000/auth/1
