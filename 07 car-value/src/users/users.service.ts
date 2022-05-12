@@ -10,35 +10,36 @@ export class UsersService {
     @InjectRepository(User) private userRepository: Repository<User>,
   ) {}
 
-  create(email: string, password: string) {
+  async create(email: string, password: string) {
     const user = this.userRepository.create({ email, password })
     return this.userRepository.save(user)
   }
 
-  async findOne(id: number) {
-    const user = await this.userRepository.findOne(id)
-    if (!user) {
-      throw new NotFoundException(`User with id ${id} not found`)
+  findOne(id: number) {
+    if (!id) {
+      return null
     }
-    return user
+    return this.userRepository.findOne(id)
   }
 
-  async find(email: string) {
-    const users = await this.userRepository.find({ email })
-    if (users.length === 0) {
-      throw new NotFoundException(`Users with email: ${email} not found`)
-    }
-    return users
+  findOneByEmail(email: string) {
+    return this.userRepository.findOne({ email })
   }
 
   async update(id: number, updateUserDto: UpdateUserDto) {
     const user = await this.findOne(id)
+    if (!user) {
+      throw new NotFoundException(`User with id ${id} not found`)
+    }
     Object.assign(user, updateUserDto)
     return this.userRepository.save(user)
   }
 
   async remove(id: number) {
     const user = await this.findOne(id)
+    if (!user) {
+      throw new NotFoundException(`User with id ${id} not found`)
+    }
     return this.userRepository.remove(user)
   }
 }

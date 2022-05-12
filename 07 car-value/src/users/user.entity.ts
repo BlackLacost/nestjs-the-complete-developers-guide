@@ -4,6 +4,7 @@ import {
   AfterUpdate,
   Column,
   Entity,
+  Index,
   PrimaryGeneratedColumn,
 } from 'typeorm'
 
@@ -12,6 +13,7 @@ export class User {
   @PrimaryGeneratedColumn()
   id: number
 
+  @Index({ unique: true })
   @Column()
   email: string
 
