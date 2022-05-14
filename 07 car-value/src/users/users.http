@@ -1,46 +1,9 @@
-### Find User by Id
-GET http://localhost:3000/auth/1
-
-
-### Not found User by Id
-GET http://localhost:3000/auth/1000
-
-
-### Find User by email
-GET http://localhost:3000/auth?email=blacklacost@gmail.com
-
-
-### Not found User by email
-GET http://localhost:3000/auth?email=gasgfdasf@gmail.com
-
-
-### Update User
-PATCH http://localhost:3000/auth/1
-Content-Type: application/json
-
-{
-	"email": "updated@gmail.com"
-}
-
-
-### Not found User when update
-PATCH http://localhost:3000/auth/1000
-Content-Type: application/json
-
-{
-	"email": "blacklacost@gmail.com"
-}
-
-### Delete User by id
-DELETE http://localhost:3000/auth/1
-
-
 ### Signup User
 POST http://localhost:3000/auth/signup
 Content-Type: application/json
 
 {
-	"email": "blacklacost2@gmail.com",
+	"email": "blacklacost@gmail.com",
 	"password": "qwe"
 }
 
@@ -81,3 +44,40 @@ POST http://localhost:3000/auth/signout
 
 ### Who am I?
 GET http://localhost:3000/auth/whoami
+
+
+### Find User by Id
+GET http://localhost:3000/auth/1
+
+
+### Not found User by Id
+GET http://localhost:3000/auth/1000
+
+
+### Find User by email
+GET http://localhost:3000/auth?email=blacklacost@gmail.com
+
+
+### Not found User by email
+GET http://localhost:3000/auth?email=gasgfdasf@gmail.com
+
+
+### Update User
+PATCH http://localhost:3000/auth/1
+Content-Type: application/json
+
+{
+	"email": "updated@gmail.com"
+}
+
+
+### Not found User when update
+PATCH http://localhost:3000/auth/1000
+Content-Type: application/json
+
+{
+	"email": "blacklacost@gmail.com"
+}
+
+### Delete User by id
+DELETE http://localhost:3000/auth/1

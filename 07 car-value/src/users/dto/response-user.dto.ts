@@ -6,4 +6,7 @@ export class ResponseUserDto {
 
   @Expose()
   email: string
+
+  @Expose()
+  admin: boolean
 }
